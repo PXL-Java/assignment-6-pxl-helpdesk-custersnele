@@ -1,10 +1,18 @@
 package be.pxl.helpdesk.domain;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "users_table") // error message!
 public class User {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String username;
 	private String email;
+
+	@Enumerated(value = EnumType.STRING)
     private UserRole role;
     private boolean locked;
 

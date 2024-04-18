@@ -18,6 +18,7 @@ public class UserService {
 
 	public List<UserDTO> getUsers() {
 		// TODO: implement this method
-		throw new UnsupportedOperationException("Not implemented yet.");
+		// throw new UnsupportedOperationException("Not implemented yet.");
+		return userRepository.findAll().stream().map(UserDTO::new).toList();
 	}
 }

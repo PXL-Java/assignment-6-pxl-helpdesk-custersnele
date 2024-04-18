@@ -1,15 +1,31 @@
 package be.pxl.helpdesk.domain;
 
-import java.time.LocalDateTime;
+import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
 public class Ticket {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@ManyToOne
     private User reporter;
     private String subject;
 	private String body;
+
+	@Enumerated(value = EnumType.STRING)
 	private Priority priority = Priority.NORMAL;
+
+	@Enumerated(value = EnumType.STRING)
 	private Status status = Status.NEW;
     private LocalDateTime dateCreated;
+
+	@OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<TicketComment> comments = new ArrayList<>();
 
 	public Ticket() {
 		// JPA only
@@ -78,7 +94,7 @@ public class Ticket {
 
     public int getNumberOfComments() {
 	    // TODO: implement this method
-		return 0;
+		return comments.size();
     }
 
 	public void solve() {
@@ -88,4 +104,14 @@ public class Ticket {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+
+	public void addComment(TicketComment comment) {
+		comments.add(comment);
+	}
+
+	public List<TicketComment> getComments() {
+		return comments;
+	}
+
+
 }
