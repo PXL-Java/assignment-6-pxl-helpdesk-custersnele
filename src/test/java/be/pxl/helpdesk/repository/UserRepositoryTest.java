@@ -5,7 +5,6 @@ import be.pxl.helpdesk.domain.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,7 @@ public class UserRepositoryTest {
 
 	@Test
 	public void testRetrieveUserByEmail() {
-		Optional<User> userByEmail = userRepository.findUserByEmail2("test2@pxl.be");
+		Optional<User> userByEmail = userRepository.findUserByEmail("test2@pxl.be");
 
 		Assertions.assertTrue(userByEmail.isPresent());
 		Assertions.assertEquals("test2@pxl.be", userByEmail.get().getEmail());
@@ -42,7 +41,7 @@ public class UserRepositoryTest {
 
 	@Test
 	public void testFindUserByEmailReturnsOptionalEmpty_WhenEmailNotExists() {
-		Optional<User> userByEmail = userRepository.findUserByEmail2("test3@pxl.be");
+		Optional<User> userByEmail = userRepository.findUserByEmail("test3@pxl.be");
 
 		Assertions.assertTrue(userByEmail.isEmpty());
 	}

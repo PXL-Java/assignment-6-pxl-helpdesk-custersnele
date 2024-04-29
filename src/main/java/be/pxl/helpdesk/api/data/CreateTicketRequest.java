@@ -30,6 +30,22 @@ public class CreateTicketRequest {
 		return priority;
 	}
 
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public void setReporter(String reporter) {
+		this.reporter = reporter;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
+	}
+
+	public void setPriority(Priority priority) {
+		this.priority = priority;
+	}
+
 	/*
 	{
   "ticket": {

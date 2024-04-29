@@ -24,7 +24,7 @@ Vervolledig  de entity klassen User en Ticket. Er is GEEN bi-directionele relati
 <img src="images/user_ticket.png" alt="user_ticket" style="width:300px;"/>
 
 
-Voeg de ontbrekende annotaties toe in de klasse UserController (package be.pxl.helpdesk.api) zodat het REST endpoint ‘GET /helpdesk/users’  aangeroepen kan worden (zie ook README.md). Na het toevoegen van de annotaties kan je de toepassing opstarten en het endpoint uittesten.
+Voeg de ontbrekende annotaties toe in de klasse UserController (package be.pxl.helpdesk.api) zodat het REST endpoint ‘GET /users’  aangeroepen kan worden (zie ook README.md). Na het toevoegen van de annotaties kan je de toepassing opstarten en het endpoint uittesten.
 
 
  ### Task 2: User story 1

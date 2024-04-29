@@ -3,10 +3,7 @@ package be.pxl.helpdesk.service;
 import be.pxl.helpdesk.api.data.CreateTicketCommentRequest;
 import be.pxl.helpdesk.api.data.CreateTicketRequest;
 import be.pxl.helpdesk.api.data.TicketDTO;
-import be.pxl.helpdesk.domain.Status;
-import be.pxl.helpdesk.domain.Ticket;
-import be.pxl.helpdesk.domain.TicketComment;
-import be.pxl.helpdesk.domain.User;
+import be.pxl.helpdesk.domain.*;
 import be.pxl.helpdesk.exception.BusinessException;
 import be.pxl.helpdesk.exception.NotFoundException;
 import be.pxl.helpdesk.repository.TicketRepository;
@@ -34,6 +31,7 @@ public class TicketService {
 			throw new BusinessException("Account [" + createTicketRequest.getReporter() + "] is currently locked.");
 		}
 		Ticket ticket = new Ticket(reporter, createTicketRequest.getSubject(), createTicketRequest.getBody());
+		ticket.setPriority(createTicketRequest.getPriority() == null? Priority.NORMAL : createTicketRequest.getPriority());
 		ticket = ticketRepository.save(ticket);
 		return ticket.getId();
 	}

@@ -44,6 +44,10 @@ public class Ticket {
         return id;
     }
 
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public User getReporter() {
 		return reporter;
 	}

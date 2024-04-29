@@ -41,7 +41,7 @@ public class TicketServiceTest {
 				.aCreateTicketRequest()
 				.withReporter("rep@pxl.be")
 				.build();
-		Mockito.when(userRepository.findUserByEmail2("rep@pxl.be")).thenReturn(Optional.empty());
+		Mockito.when(userRepository.findUserByEmail("rep@pxl.be")).thenReturn(Optional.empty());
 
 		Assertions.assertThrows(NotFoundException.class,
 				() -> ticketService.createTicket(createTicketRequest));
@@ -54,7 +54,7 @@ public class TicketServiceTest {
 				.withReporter("rep@pxl.be")
 				.build();
 		User reporter = UserBuilder.anUser().withEmail("rep@pxl.be").withLocked(true).build();
-		Mockito.when(userRepository.findUserByEmail2("rep@pxl.be")).thenReturn(Optional.of(reporter));
+		Mockito.when(userRepository.findUserByEmail("rep@pxl.be")).thenReturn(Optional.of(reporter));
 
 		Assertions.assertThrows(BusinessException.class,
 				() -> ticketService.createTicket(createTicketRequest));
@@ -70,7 +70,7 @@ public class TicketServiceTest {
 				.withBody("Really big problem...")
 				.build();
 		User reporter = UserBuilder.anUser().withEmail("rep@pxl.be").withLocked(false).build();
-		Mockito.when(userRepository.findUserByEmail2("rep@pxl.be")).thenReturn(Optional.of(reporter));
+		Mockito.when(userRepository.findUserByEmail("rep@pxl.be")).thenReturn(Optional.of(reporter));
 		Ticket mockedTicket = Mockito.mock(Ticket.class);
 		Mockito.when(mockedTicket.getId()).thenReturn(5L);
 		Mockito.when(ticketRepository.save(Mockito.any())).thenReturn(mockedTicket);

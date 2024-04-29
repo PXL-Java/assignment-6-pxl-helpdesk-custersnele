@@ -12,7 +12,7 @@ database url and credentials can be found in `appplication.properties`.
 
 #### Request
 
-`GET /users/`
+`GET /users`
 
     e.g. http://localhost:8080/users
 

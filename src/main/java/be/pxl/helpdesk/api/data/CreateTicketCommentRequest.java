@@ -24,6 +24,18 @@ public class CreateTicketCommentRequest {
 		return solved;
 	}
 
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public void setReporter(String reporter) {
+		this.reporter = reporter;
+	}
+
+	public void setSolved(boolean solved) {
+		this.solved = solved;
+	}
+
 	/*
 	{
   "ticket": {
