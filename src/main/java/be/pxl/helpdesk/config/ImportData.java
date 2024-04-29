@@ -18,6 +18,7 @@ public class ImportData implements CommandLineRunner {
 	private final UserRepository userRepository;
 	private final TicketRepository ticketRepository;
 
+
 	public ImportData(UserRepository userRepository, TicketRepository ticketRepository) {
 		this.userRepository = userRepository;
 		this.ticketRepository = ticketRepository;
