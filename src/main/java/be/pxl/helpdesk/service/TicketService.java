@@ -42,7 +42,7 @@ public class TicketService {
 		if (reporter.isLocked()) {
 			throw new BusinessException("Account [" + createTicketCommentRequest.getReporter() + "] is currently locked.");
 		}
-
+		// TODO check admin or original reporter
 		Ticket ticket = ticketRepository.findById(ticketId).orElseThrow(() -> new NotFoundException("No ticket with id [" + ticketId + "]"));
 		if (createTicketCommentRequest.isSolved()) {
 			// INTERESTING FOR TESTING: ticket.solve();
